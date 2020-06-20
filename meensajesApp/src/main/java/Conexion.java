@@ -19,9 +19,6 @@ public class Conexion {
         try {
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/persistenciaPlatzi",
                     "almira","edwins24");
-            if(conexion != null){
-                System.out.println("Conexion exitosa");
-            }
         } catch (Exception e) {
             System.out.println(e);
         }
