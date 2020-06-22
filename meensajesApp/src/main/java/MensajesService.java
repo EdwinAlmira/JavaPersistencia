@@ -19,10 +19,12 @@ public class MensajesService {
 
     public static void crearMensajes(){
         Scanner sc = new Scanner(System.in);
+        String autor;
+        String mensaje;
         System.out.println("\nEscribe tu mensaje");
-        String mensaje = sc.nextLine();
+        mensaje = sc.nextLine();
         System.out.println("\nEscribe tu nombre");
-        String autor = sc.nextLine();
+        autor = sc.nextLine();
         
         Mensajes mensajes = new Mensajes();
         mensajes.setMensaje(mensaje);
@@ -35,24 +37,28 @@ public class MensajesService {
     }
     
     public static void borrarMensajes(){
-        System.out.println("Cual es el id del mensaje a borrar:");
         Scanner sc = new Scanner(System.in);
-        int idMensaje = sc.nextInt();
+        int idMensaje;
+        System.out.println("Cual es el id del mensaje a borrar:");
+        idMensaje = sc.nextInt();
         MensajesDAO.borrarMensajesDB(idMensaje);
     }
     
     public static void editarMensajes(){
         Scanner sc = new Scanner(System.in);
-        Scanner sc1 = new Scanner(System.in);
-        System.out.println("Cual es el id del mensaje a editar:");
-        int idMensaje = sc.nextInt();
-        System.out.println("Actualiza el mensaje: ");
-        String mensajeNuevo = sc.nextLine();
+        String mensajeNuevo;
+        String autor;
+        int idMensaje;
         
+        System.out.println("Cual es el id del mensaje a editar:");
+        idMensaje = Integer.parseInt(sc.nextLine());
+        System.out.println("Actualiza el mensaje: ");
+        mensajeNuevo = sc.nextLine();
         System.out.println("Actualiza el autor del mensaje:");
-        String autor = sc1.nextLine();
+        autor = sc.nextLine();
         
         Mensajes mensajito = new  Mensajes();
+        
         mensajito.setId_mensaje(idMensaje);
         mensajito.setMensaje(mensajeNuevo);
         mensajito.setAutorMensaje(autor);
